@@ -1,4 +1,4 @@
-{% load tailwind_field %}
+{% load tailwind_field aquevix_forms_field %}
 
 {% if field.is_hidden %}
     {{ field }}
@@ -25,6 +25,13 @@
 
         <div class="{% if field_class %}{{ field_class }}{% else %}mb-3{% endif %}"{% if flat_attrs %} {{ flat_attrs|safe }}{% endif %}>
         {% include 'tailwind/layout/checkboxselectmultiple.html' %}
+
+    {% elif field|is_date %} {# Case for Date/Datetime #}
+
+      <ax-date-input {% if field.errors %}class="is-invalid"{% endif %} {% if field|is_datetime %}time{% endif %}>
+        {% tailwind_field field %}
+      </ax-date-input>
+
     {% else %}
 
         {# otherwise use django rendering with additional classes added #}
