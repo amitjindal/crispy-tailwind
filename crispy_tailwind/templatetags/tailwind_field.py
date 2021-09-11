@@ -89,6 +89,11 @@ base_input = (
     "appearance-none leading-normal text-gray-700"
 )
 
+base_select = (  # Same as input except px and py
+    "bg-white focus:outline-none border border-gray-300 rounded-lg block w-full "
+    "appearance-none leading-normal text-gray-700"
+)
+
 default_styles = {
     "text": base_input,
     "number": base_input,
@@ -105,9 +110,9 @@ default_styles = {
     "datetime": base_input,
     "time": base_input,
     "checkbox": "",
-    "select": "select AMIT",
+    "select": base_select,
     "nullbooleanselect": "",
-    "selectmultiple": "",
+    "selectmultiple": base_select,
     "checkboxselectmultiple": "",
     "multi": "",
     "splitdatetime": "text-gray-700 bg-white focus:outline border border-gray-300 leading-normal px-4 "
