@@ -2,12 +2,10 @@
 {% load l10n %}
 
 <div class="relative">
-  <ax-select {% if field|is_selectsearchable %}search{% endif %}>
-    <select class="{% if field.errors %}border border-red-500{% endif %} {{ field | tailwind_field_class }}" name="{{ field.html_name }}" {{ field.field.widget.attrs|flatatt }} {% if field|is_selectmultiple %}multiple="multiple"{% endif %}>
+    <select class="selectinput {% if field.errors %}border border-red-500{% endif %} {{ field | tailwind_field_class }}" name="{{ field.html_name }}" {{ field.field.widget.attrs|flatatt }} {% if field|is_selectmultiple %}multiple="multiple"{% endif %}>
     {% for value, label in field.field.choices %}
       {% include "tailwind/layout/select_option.html" with value=value label=label %}
     {% endfor %}
     </select>
-  </ax-select>
   </div> {# Extra div close because the generated markup is missing one div. #}
 </div>
